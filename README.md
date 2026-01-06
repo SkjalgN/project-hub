@@ -75,7 +75,9 @@ Projects are stored in `public/projects.json`. To add a new project:
   "status": "active",
   "liveUrl": "https://example.com",
   "repoUrl": "https://github.com/username/repo",
-  "tags": ["react", "typescript", "api"]
+  "tags": ["react", "typescript", "api"],
+  "logo": "/images/logos/react.svg",
+  "previewImage": "/images/previews/my-project.svg"
 }
 ```
 
@@ -91,6 +93,8 @@ Projects are stored in `public/projects.json`. To add a new project:
 - **liveUrl** (string, optional): URL to the live demo (leave empty string if not available)
 - **repoUrl** (string, optional): URL to the GitHub repository (leave empty string if not available)
 - **tags** (array, required): List of relevant tags for filtering (e.g., technologies, categories)
+- **logo** (string, required): Path to the technology logo image (e.g., `/images/logos/react.svg`)
+- **previewImage** (string, required): Path to the project preview/screenshot image (e.g., `/images/previews/my-project.svg`)
 
 ### Example
 
@@ -102,7 +106,9 @@ Projects are stored in `public/projects.json`. To add a new project:
   "status": "active",
   "liveUrl": "https://weather-app.example.com",
   "repoUrl": "https://github.com/example/weather-dashboard",
-  "tags": ["react", "typescript", "api", "frontend"]
+  "tags": ["react", "typescript", "api", "frontend"],
+  "logo": "/images/logos/react.svg",
+  "previewImage": "/images/previews/weather-dashboard.svg"
 }
 ```
 
