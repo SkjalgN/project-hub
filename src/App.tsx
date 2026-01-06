@@ -98,41 +98,57 @@ function App() {
         ) : (
           filteredProjects.map((project) => (
             <div key={project.id} className="project-card">
-              <div className="project-header">
-                <h2>{project.name}</h2>
-                <span className={`status-badge ${getStatusBadgeClass(project.status)}`}>
-                  {project.status}
-                </span>
+              <div className="project-image-container">
+                <img 
+                  src={project.previewImage} 
+                  alt={`${project.name} preview`}
+                  className="project-preview"
+                />
+                <div className="project-logo-overlay">
+                  <img 
+                    src={project.logo} 
+                    alt={`${project.name} logo`}
+                    className="project-logo"
+                  />
+                </div>
               </div>
-              <p className="project-description">{project.description}</p>
-              <div className="project-tags">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="tag">
-                    {tag}
+              <div className="project-content">
+                <div className="project-header">
+                  <h2>{project.name}</h2>
+                  <span className={`status-badge ${getStatusBadgeClass(project.status)}`}>
+                    {project.status}
                   </span>
-                ))}
-              </div>
-              <div className="project-links">
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="link"
-                  >
-                    Live Demo
-                  </a>
-                )}
-                {project.repoUrl && (
-                  <a
-                    href={project.repoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="link"
-                  >
-                    Repository
-                  </a>
-                )}
+                </div>
+                <p className="project-description">{project.description}</p>
+                <div className="project-tags">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="project-links">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link"
+                    >
+                      Live Demo
+                    </a>
+                  )}
+                  {project.repoUrl && (
+                    <a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link"
+                    >
+                      Repository
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))

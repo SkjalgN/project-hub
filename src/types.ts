@@ -8,4 +8,6 @@ export interface Project {
   liveUrl: string;
   repoUrl: string;
   tags: string[];
+  logo: string;
+  previewImage: string;
 }

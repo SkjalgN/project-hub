@@ -6,7 +6,9 @@
     "status": "active",
     "liveUrl": "https://weather-app.example.com",
     "repoUrl": "https://github.com/example/weather-dashboard",
-    "tags": ["react", "typescript", "api", "frontend"]
+    "tags": ["react", "typescript", "api", "frontend"],
+    "logo": "/images/logos/react.svg",
+    "previewImage": "/images/previews/weather-dashboard.svg"
   },
   {
     "id": "task-manager",
@@ -15,7 +17,9 @@
     "status": "wip",
     "liveUrl": "",
     "repoUrl": "https://github.com/example/task-manager",
-    "tags": ["react", "typescript", "productivity"]
+    "tags": ["react", "typescript", "productivity"],
+    "logo": "/images/logos/typescript.svg",
+    "previewImage": "/images/previews/task-manager.svg"
   },
   {
     "id": "markdown-previewer",
@@ -24,6 +28,8 @@
     "status": "archived",
     "liveUrl": "https://markdown-preview.example.com",
     "repoUrl": "https://github.com/example/markdown-previewer",
-    "tags": ["javascript", "markdown", "editor", "frontend"]
+    "tags": ["javascript", "markdown", "editor", "frontend"],
+    "logo": "/images/logos/javascript.svg",
+    "previewImage": "/images/previews/markdown-previewer.svg"
   }
 ]
