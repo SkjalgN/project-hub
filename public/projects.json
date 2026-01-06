@@ -1,0 +1,29 @@
+[
+  {
+    "id": "weather-dashboard",
+    "name": "Weather Dashboard",
+    "description": "A real-time weather application displaying current conditions and forecasts with a clean, intuitive interface.",
+    "status": "active",
+    "liveUrl": "https://weather-app.example.com",
+    "repoUrl": "https://github.com/example/weather-dashboard",
+    "tags": ["react", "typescript", "api", "frontend"]
+  },
+  {
+    "id": "task-manager",
+    "name": "Task Manager",
+    "description": "A minimalist task management tool for organizing personal projects and daily todos with local storage persistence.",
+    "status": "wip",
+    "liveUrl": "",
+    "repoUrl": "https://github.com/example/task-manager",
+    "tags": ["react", "typescript", "productivity"]
+  },
+  {
+    "id": "markdown-previewer",
+    "name": "Markdown Previewer",
+    "description": "A simple markdown editor with live preview, syntax highlighting, and export functionality.",
+    "status": "archived",
+    "liveUrl": "https://markdown-preview.example.com",
+    "repoUrl": "https://github.com/example/markdown-previewer",
+    "tags": ["javascript", "markdown", "editor", "frontend"]
+  }
+]
