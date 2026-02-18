@@ -8,32 +8,58 @@ header {
   text-align: center;
   margin-bottom: 3rem;
   padding: 2rem 0;
-  border-bottom: 2px solid rgba(46, 125, 50, 0.3);
+  border-bottom: 2px solid var(--header-border);
+  position: relative;
 }
 
 header h1 {
   font-size: 2.5rem;
-  color: #ffffff;
+  color: var(--text-heading);
   margin-bottom: 0.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .subtitle {
   font-size: 1.1rem;
-  color: #b0b0b0;
+  color: var(--text-secondary);
 }
 
+/* ── Theme toggle button ── */
+.theme-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 0.5rem 1rem;
+  background: var(--theme-btn-bg);
+  color: var(--theme-btn-color);
+  border: 1px solid var(--theme-btn-border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+}
+
+/* ── Filters ── */
 .filters {
   display: flex;
   gap: 2rem;
   justify-content: center;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: rgba(30, 30, 46, 0.6);
+  background: var(--filter-bg);
   backdrop-filter: blur(10px);
   border-radius: 12px;
-  border: 1px solid rgba(46, 125, 50, 0.2);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .filter-group {
@@ -44,31 +70,32 @@ header h1 {
 
 .filter-group label {
   font-weight: 600;
-  color: #e0e0e0;
+  color: var(--text-primary);
 }
 
 .filter-group select {
   padding: 0.5rem 1rem;
-  border: 1px solid rgba(46, 125, 50, 0.3);
+  border: 1px solid var(--card-border);
   border-radius: 6px;
-  background-color: rgba(30, 30, 46, 0.8);
-  color: #e0e0e0;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .filter-group select:hover {
-  border-color: #2e7d32;
-  background-color: rgba(30, 30, 46, 1);
+  border-color: var(--accent);
+  background-color: var(--input-bg-hover);
 }
 
 .filter-group select:focus {
   outline: none;
-  border-color: #2e7d32;
+  border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
 }
 
+/* ── Grid ── */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -76,30 +103,28 @@ header h1 {
   margin-bottom: 3rem;
 }
 
+/* ── Card ── */
 .project-card {
-  background: rgba(30, 30, 46, 0.7);
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
   border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  overflow: visible; /* must stay visible so the logo overlay is not clipped */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(46, 125, 50, 0.2);
+  border: 1px solid var(--card-border);
+  position: relative; /* anchor for the absolutely-positioned logo overlay */
 }
 
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.3);
-  border-color: rgba(46, 125, 50, 0.4);
-}
-
+/* ── Image container ── */
 .project-image-container {
   position: relative;
   width: 100%;
   height: 200px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  overflow: hidden;           /* clips only the preview image */
+  background: var(--image-bg);
+  border-radius: 16px 16px 0 0; /* match card top corners */
 }
 
 .project-preview {
@@ -113,35 +138,40 @@ header h1 {
   transform: scale(1.1);
 }
 
+/* ── Logo overlay ── */
+/* Positioned relative to .project-card (not the image container), so
+   overflow:hidden on the image container does NOT clip it.
+   top = imageHeight(200) - logoHeight(80) + overlap(30) = 150px        */
 .project-logo-overlay {
   position: absolute;
-  bottom: -30px;
+  top: 150px;
   left: 20px;
   width: 80px;
   height: 80px;
-  background: rgba(30, 30, 46, 0.95);
+  background: var(--logo-bg);
   backdrop-filter: blur(10px);
   border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(46, 125, 50, 0.3);
-  transition: all 0.3s;
+  overflow: hidden;           /* keep image within rounded corners */
+  padding: 0;                 /* image fills the entire div */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  /* border: 2px solid var(--card-border); */
+  transition: border-color 0.3s, box-shadow 0.3s;
+  z-index: 10;
 }
 
-.project-card:hover .project-logo-overlay {
-  border-color: #2e7d32;
+/* .project-card:hover .project-logo-overlay {
+  border-color: var(--accent);
   box-shadow: 0 6px 16px rgba(46, 125, 50, 0.4);
-}
+} */
 
 .project-logo {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  display: block;
 }
 
+/* ── Card content ── */
 .project-content {
   padding: 2.5rem 1.5rem 1.5rem;
   display: flex;
@@ -159,11 +189,12 @@ header h1 {
 
 .project-header h2 {
   font-size: 1.4rem;
-  color: #ffffff;
+  color: var(--text-heading);
   margin: 0;
   flex: 1;
 }
 
+/* ── Status badges ── */
 .status-badge {
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
@@ -189,11 +220,12 @@ header h1 {
 .status-archived {
   background: linear-gradient(135deg, #546e7a 0%, #37474f 100%);
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(84, 110, 122, 0.4);
+  box-shadow: 0 2px 8px rgba(84, 110, 122, 0.3);
 }
 
+/* ── Description / tags / links ── */
 .project-description {
-  color: #b0b0b0;
+  color: var(--text-secondary);
   margin-bottom: 1rem;
   flex-grow: 1;
   line-height: 1.6;
@@ -208,17 +240,17 @@ header h1 {
 
 .tag {
   padding: 0.35rem 0.75rem;
-  background: rgba(46, 125, 50, 0.15);
-  color: #81c784;
+  background: var(--tag-bg);
+  color: var(--tag-color);
   border-radius: 6px;
   font-size: 0.85rem;
-  border: 1px solid rgba(46, 125, 50, 0.3);
+  border: 1px solid var(--tag-border);
   transition: all 0.3s;
 }
 
 .tag:hover {
-  background: rgba(46, 125, 50, 0.25);
-  border-color: #2e7d32;
+  background: var(--tag-bg-hover);
+  border-color: var(--accent);
 }
 
 .project-links {
@@ -229,7 +261,7 @@ header h1 {
 
 .link {
   padding: 0.65rem 1.25rem;
-  background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
@@ -241,14 +273,14 @@ header h1 {
 }
 
 .link:hover {
-  background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%);
+  background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent) 100%);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(46, 125, 50, 0.5);
 }
 
 .no-projects {
   text-align: center;
-  color: #b0b0b0;
+  color: var(--text-secondary);
   font-size: 1.1rem;
   padding: 2rem;
   grid-column: 1 / -1;
@@ -257,10 +289,11 @@ header h1 {
 footer {
   text-align: center;
   padding: 2rem 0;
-  border-top: 2px solid rgba(46, 125, 50, 0.3);
-  color: #b0b0b0;
+  border-top: 2px solid var(--header-border);
+  color: var(--text-secondary);
 }
 
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
@@ -268,6 +301,12 @@ footer {
 
   header h1 {
     font-size: 2rem;
+  }
+
+  .theme-toggle {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
   }
 
   .filters {
@@ -282,7 +321,7 @@ footer {
   .project-logo-overlay {
     width: 60px;
     height: 60px;
-    padding: 10px;
+    top: 160px; /* 200px - 60px + 20px */
   }
 }
 

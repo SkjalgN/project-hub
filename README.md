@@ -1,23 +1,6 @@
 # Project Hub
 
-A personal project hub built with React, Vite, and TypeScript. This static site provides a clean and simple way to showcase your projects with filtering capabilities.
-
-## Purpose
-
-This project hub serves as a centralized location to display and organize your personal projects. It allows visitors to:
-- Browse through all your projects
-- Filter projects by status (active, work in progress, archived)
-- Filter projects by tags
-- Access live demos and source code repositories
-
-## Features
-
-- 🎯 Simple, clean interface
-- 🔍 Filter projects by status and tags
-- 📱 Responsive design
-- ⚡ Fast and lightweight (static site only)
-- 🚀 No backend, authentication, database, or analytics
-- 🎨 Minimal CSS - easy to customize
+A personal project hub built with React, Vite, and TypeScript. This static site provides a clean and simple way to showcase your projects.
 
 ## Tech Stack
 
@@ -200,28 +183,3 @@ npm run build
 npm install -g @azure/static-web-apps-cli
 swa deploy ./dist --app-name project-hub
 ```
-
-## Customization
-
-### Styling
-
-The project uses minimal CSS for easy customization:
-- `src/index.css` - Global styles
-- `src/App.css` - Component-specific styles
-
-Feel free to modify these files to match your personal brand or preferences.
-
-### Project Schema
-
-If you need to extend the project schema, update:
-1. `src/types.ts` - Add new TypeScript interfaces
-2. `public/projects.json` - Add new fields to project objects
-3. `src/App.tsx` - Update the component to display new fields
-
-## License
-
-This project is open source and available under the MIT License.
-
-## Contributing
-
-This is a personal project hub template. Feel free to fork and customize it for your own use!

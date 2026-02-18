@@ -7,6 +7,12 @@ function App() {
   const [statusFilter, setStatusFilter] = useState<ProjectStatus | 'all'>('all')
   const [tagFilter, setTagFilter] = useState<string>('all')
   const [allTags, setAllTags] = useState<string[]>([])
+  const [darkMode, setDarkMode] = useState(true)
+
+  // Apply theme to :root so CSS variables switch
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light')
+  }, [darkMode])
 
   useEffect(() => {
     fetch('/projects.json')
@@ -56,11 +62,18 @@ function App() {
   return (
     <div className="container">
       <header>
-        <h1>Project Hub</h1>
-        <p className="subtitle">A collection of my personal projects</p>
+        <h1>Skjalg's Project Hub</h1>
+        {/* <p className="subtitle">A collection of my personal projects</p> */}
+        <button
+          className="theme-toggle"
+          onClick={() => setDarkMode((prev) => !prev)}
+          aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+        >
+          {darkMode ? '☀ Light Mode' : '🌙 Dark Mode'}
+        </button>
       </header>
 
-      <div className="filters">
+      {/* <div className="filters">
         <div className="filter-group">
           <label htmlFor="status-filter">Status:</label>
           <select
@@ -90,7 +103,7 @@ function App() {
             ))}
           </select>
         </div>
-      </div>
+      </div> */}
 
       <div className="projects-grid">
         {filteredProjects.length === 0 ? (
@@ -104,13 +117,14 @@ function App() {
                   alt={`${project.name} preview`}
                   className="project-preview"
                 />
-                <div className="project-logo-overlay">
-                  <img 
-                    src={project.logo} 
-                    alt={`${project.name} logo`}
-                    className="project-logo"
-                  />
-                </div>
+              </div>
+              {/* Logo sits outside image container so overflow:hidden doesn't clip it */}
+              <div className="project-logo-overlay">
+                <img 
+                  src={project.logo} 
+                  alt={`${project.name} logo`}
+                  className="project-logo"
+                />
               </div>
               <div className="project-content">
                 <div className="project-header">
@@ -135,7 +149,7 @@ function App() {
                       rel="noopener noreferrer"
                       className="link"
                     >
-                      Live Demo
+                      Go to website
                     </a>
                   )}
                   {project.repoUrl && (
@@ -155,9 +169,8 @@ function App() {
         )}
       </div>
 
-      <footer>
-        <p>Built with React + Vite + TypeScript</p>
-      </footer>
+      {/* <footer>
+      </footer> */}
     </div>
   )
 }

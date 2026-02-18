@@ -1,35 +1,24 @@
 [
   {
-    "id": "weather-dashboard",
-    "name": "Weather Dashboard",
-    "description": "A real-time weather application displaying current conditions and forecasts with a clean, intuitive interface.",
+    "id": "celebrity-sightings",
+    "name": "Celebrity Sightings",
+    "description": "An app for tracking your own celebrity sightings and compare scores with friends.",
     "status": "active",
-    "liveUrl": "https://weather-app.example.com",
-    "repoUrl": "https://github.com/example/weather-dashboard",
-    "tags": ["react", "typescript", "api", "frontend"],
-    "logo": "/images/logos/react.svg",
-    "previewImage": "/images/previews/weather-dashboard.svg"
+    "liveUrl": "https://celebsightings-frontend-appservice.azurewebsites.net/users",
+    "repoUrl": "https://github.com/SkjalgN/CelebSightings",
+    "tags": [" JS React", "C#"],
+    "logo": "/images/logos/celebrity_logo.png",
+    "previewImage": "/images/previews/celebrity_backpic.png"
   },
   {
-    "id": "task-manager",
-    "name": "Task Manager",
-    "description": "A minimalist task management tool for organizing personal projects and daily todos with local storage persistence.",
-    "status": "wip",
-    "liveUrl": "",
-    "repoUrl": "https://github.com/example/task-manager",
-    "tags": ["react", "typescript", "productivity"],
-    "logo": "/images/logos/typescript.svg",
-    "previewImage": "/images/previews/task-manager.svg"
-  },
-  {
-    "id": "markdown-previewer",
-    "name": "Markdown Previewer",
-    "description": "A simple markdown editor with live preview, syntax highlighting, and export functionality.",
-    "status": "archived",
-    "liveUrl": "https://markdown-preview.example.com",
-    "repoUrl": "https://github.com/example/markdown-previewer",
-    "tags": ["javascript", "markdown", "editor", "frontend"],
-    "logo": "/images/logos/javascript.svg",
-    "previewImage": "/images/previews/markdown-previewer.svg"
+    "id": "office-simulation",
+    "name": "Office Simulation",
+    "description": "Rendering of my office with interactable camera and weather simulation.",
+    "status": "active",
+    "liveUrl": "https://office-simulation.azurewebsites.net/",
+    "repoUrl": "https://github.com/SkjalgN/RenderProject",
+    "tags": ["Babylon.js"],
+    "logo": "/images/logos/office_logo.png",
+    "previewImage": "/images/previews/office_backpic.png"
   }
 ]
